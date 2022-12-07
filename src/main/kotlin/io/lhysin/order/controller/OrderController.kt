@@ -21,7 +21,7 @@ class OrderController(
     }
 
     @PostMapping("/api/v1/orders")
-    fun createOrder(@RequestBody createOrderForm: CreateOrderForm) {
-        orderService.createOrder(createOrderForm);
+    fun createOrder(@RequestBody createOrderForm: CreateOrderForm): Long {
+        return orderService.createOrder(createOrderForm);
     }
 }

@@ -30,7 +30,7 @@ class Order(
 //    @CreatedBy
 //    val createdBy: String? = null,
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     @CreatedDate
     val createdDate: LocalDateTime? = null,
 
