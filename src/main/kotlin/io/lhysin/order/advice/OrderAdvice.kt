@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.servlet.function.ServerResponse
 
-val logger = KotlinLogging.logger {}
+private val logger = KotlinLogging.logger {}
 
 @ControllerAdvice(basePackages = ["io.lhysin.order"])
 class OrderAdvice (

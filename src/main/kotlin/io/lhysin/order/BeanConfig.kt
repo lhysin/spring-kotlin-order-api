@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.transaction.TransactionStatus
 
 @Configuration
-class Config {
+class BeanConfig {
 
     @Bean
     @Qualifier("transactionStatusSet")
