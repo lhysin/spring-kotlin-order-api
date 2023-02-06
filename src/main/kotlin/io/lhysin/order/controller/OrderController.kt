@@ -1,13 +1,11 @@
 package io.lhysin.order.controller
 
 import io.lhysin.order.dto.CreateOrderForm
+import io.lhysin.order.dto.CreateOrderRes
 import io.lhysin.order.entity.Order
+import io.lhysin.order.exception.ChaosException
 import io.lhysin.order.service.OrderService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 class OrderController(
@@ -21,7 +19,12 @@ class OrderController(
     }
 
     @PostMapping("/api/v1/orders")
-    fun createOrder(@RequestBody createOrderForm: CreateOrderForm): Long {
+    fun createOrder(@RequestBody createOrderForm: CreateOrderForm): CreateOrderRes {
         return orderService.createOrder(createOrderForm);
+    }
+
+    @GetMapping("/api/v1/orders")
+    fun findAll(): List<Order> {
+        return orderService.findAll();
     }
 }

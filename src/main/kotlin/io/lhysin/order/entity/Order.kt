@@ -9,7 +9,7 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-@Table(name = "ORDERS")
+@Table(name = "TBL_ORDERS")
 class Order(
     @Id
     @Column(nullable = false)
