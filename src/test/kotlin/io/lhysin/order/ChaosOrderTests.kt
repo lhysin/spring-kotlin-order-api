@@ -38,7 +38,7 @@ class ChaosOrderTests (
         assert(beforeLogSize!! < 1)
         assert(beforeOrderSize!! < 1)
 
-        val void = restTemplate.postForObject("/chaos/v1/orders",
+        restTemplate.postForObject("/chaos/v1/orders",
             CreateOrderForm(
                 userId = 9999,
                 itemId = 1234

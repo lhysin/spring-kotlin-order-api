@@ -25,9 +25,17 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
 
+    implementation("com.github.sonus21:rqueue-spring:2.13.0-RELEASE")
+    implementation("com.github.sonus21:rqueue-spring-boot-starter:2.13.0-RELEASE")
+
+    implementation("it.ozimov:embedded-redis:0.7.3"){
+        exclude(group="org.slf4j", module="slf4j-simple")
+    }
+
     runtimeOnly("com.h2database:h2:2.1.214")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
 
 }
 
