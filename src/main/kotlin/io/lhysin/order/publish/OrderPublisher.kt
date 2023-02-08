@@ -22,6 +22,8 @@ class OrderPublisher (
             .forEach { createOrderForm -> rqueueMessageEnqueuer.enqueue("order-queue", "2023-01-02", createOrderForm)}
         list.map { i -> CreateOrderForm(itemId = i*99, userId = i*99) }
             .forEach { createOrderForm -> rqueueMessageEnqueuer.enqueue("order-queue", "9999-01-02", createOrderForm)}
+        list.map { i -> CreateOrderForm(itemId = i*2, userId = i*2) }
+            .forEach { createOrderForm -> rqueueMessageEnqueuer.enqueue("order-queue", createOrderForm)}
 
         logger.debug("stream.count() : ${list.count()}")
 

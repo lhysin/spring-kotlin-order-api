@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.http.HttpStatus
 import org.springframework.transaction.TransactionStatus
-import org.springframework.transaction.interceptor.TransactionAspectSupport
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
+import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.function.ServerResponse
 
 private val logger = KotlinLogging.logger {}
@@ -25,6 +25,7 @@ class OrderAdvice (
 ) {
 
     @ExceptionHandler(ChaosException::class)
+    @ResponseBody
     fun handleChaosException(ex: ChaosException): ServerResponse {
         logger.debug("OrderAdvice handleChaosException() transactionStatusSet.first().isCompleted : {}", transactionStatusSet.first().isCompleted)
 
