@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*
 class LogController(
 
     private val logService: LogService
-
 ) {
     @GetMapping("/api/v1/logs/{id}")
     fun findById(@PathVariable("id") id: Long): Log {
