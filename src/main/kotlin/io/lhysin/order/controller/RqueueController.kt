@@ -39,4 +39,11 @@ class RqueueController(
 
     }
 
+    @GetMapping("/api/v1/rqueue/{queueName}/{id}/count")
+    fun countById(@PathVariable("queueName") queueName: String, @PathVariable("id") id : String): Int {
+        return rqueueMessageManager.getAllRqueueMessage(queueName)
+            .filter { rqueueMessage -> rqueueMessage.id.equals(id) }
+            .size
+    }
+
 }

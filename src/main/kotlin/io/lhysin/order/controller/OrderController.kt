@@ -3,8 +3,8 @@ package io.lhysin.order.controller
 import io.lhysin.order.dto.CreateOrderForm
 import io.lhysin.order.dto.CreateOrderRes
 import io.lhysin.order.entity.Order
-import io.lhysin.order.publish.CreateOrderPublisher
-import io.lhysin.order.publish.OrderPublisher
+import io.lhysin.order.producer.CreateOrderProducer
+import io.lhysin.order.producer.OrderProducer
 import io.lhysin.order.service.OrderService
 import org.springframework.web.bind.annotation.*
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*
 class OrderController(
 
     private val orderService: OrderService,
-    private val orderPublisher: OrderPublisher,
-    private val createOrderPublisher: CreateOrderPublisher,
+    private val orderProducer: OrderProducer,
+    private val createOrderProducer: CreateOrderProducer,
 
-) {
+    ) {
     @GetMapping("/api/v1/orders/{id}")
     fun findById(@PathVariable("id") id: Long): Order {
         return orderService.findById(id)
@@ -33,12 +33,12 @@ class OrderController(
 
     @GetMapping("/api/v1/orders/publish/rqueue")
     fun publishRqueue() {
-        orderPublisher.createOrder()
+        orderProducer.createOrder()
     }
 
     @GetMapping("/api/v1/orders/publish/redis")
     fun publishRedis() {
-        createOrderPublisher.createOrder()
+        createOrderProducer.createOrder()
     }
 
 }

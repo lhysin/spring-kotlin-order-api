@@ -9,10 +9,13 @@ spring:
     hibernate:
       ddl-auto: create
     show-sql: true
-
+  h2:
+    console:
+      enabled: true
 logging:
   level:
     org.springframework.data: warn
     it.ozimov: debug
     h2: debug
     io.lhysin: debug
+#    com.github.sonus21: ERROR

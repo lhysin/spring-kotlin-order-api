@@ -17,7 +17,7 @@ class RedisConfig {
     @Bean
     fun simpleRqueueListenerContainerFactory(): SimpleRqueueListenerContainerFactory? {
         val simpleRqueueListenerContainerFactory = SimpleRqueueListenerContainerFactory()
-        simpleRqueueListenerContainerFactory.maxNumWorkers = 1
+        simpleRqueueListenerContainerFactory.maxNumWorkers = 20
         simpleRqueueListenerContainerFactory.pollingInterval = Constants.ONE_MILLI
         return simpleRqueueListenerContainerFactory
     }
